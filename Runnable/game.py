@@ -12,16 +12,18 @@ class Game:
         while True:
             cls()
             print(result[1])
-            description = engine.get_description()
-            print(description)
+            print(engine.get_description())
             options = engine.get_options()
-            i = 1
+            i = 0
             for option in options:
                 print(str(i), ': ', option[1])
                 i += 1
-            print('choose option (1, 2, 3):')
-            option = input(':')
-            result = engine.register_option(option)
+            print('choose option:')
+            user_option = int(input(':'))
+            selected_option = options[user_option]
+            result = engine.register_option([user_option, selected_option[0]])
 
             if result[0] == 'quit':
+                print(engine.get_description())
+                print(result[1])
                 break
