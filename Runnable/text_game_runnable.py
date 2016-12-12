@@ -1,8 +1,9 @@
 from Engines.default_engine import DefaultEngine
+from Engines.prison_engine import PrisonEngine
 from Engines.xogame_engine import XoGameEngine
 from Runnable.game import Game
 
-engines = [DefaultEngine(), XoGameEngine()]
+engines = [DefaultEngine(), XoGameEngine(), PrisonEngine()]
 
 def main(argv=0):
     print('Select game engine:')

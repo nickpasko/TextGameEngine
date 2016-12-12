@@ -3,6 +3,7 @@ import os
 
 class XoGameEngine:
     """XO game with pre-defined CPU logic"""
+
     def __init__(self):
         self.field = [[0, 0, 0],
                       [0, 0, 0],
@@ -18,7 +19,7 @@ class XoGameEngine:
             [0, [[1, 1], [1, 0], [1, 2]]]
         ]
 
-# engine members
+    # engine members
     def get_description(self):
         description = '  0  1  2' + os.linesep
         description += '  -------' + os.linesep
@@ -64,7 +65,8 @@ class XoGameEngine:
         else:
             return ['move_unable', 'Impossible!']
 
-# internal members
+        # internal members
+
     def recalculate(self):
         for line in self.lines:
             line[0] = 0
@@ -85,7 +87,6 @@ class XoGameEngine:
     def select_line(self):
         min_line = self.lines[0]
         max_line = self.lines[0]
-        selected_line = self.lines[0]
         for line in self.lines:
             if self.not_allowed(line):
                 continue
@@ -99,7 +100,6 @@ class XoGameEngine:
             selected_line = min_line
         return selected_line
 
-
     def make_move(self):
         selected_line = self.select_line()
         if self.not_allowed(selected_line):
@@ -108,6 +108,3 @@ class XoGameEngine:
             if self.field[cell[0]][cell[1]] == 0:
                 self.field[cell[0]][cell[1]] = -1
                 return
-
-
-
