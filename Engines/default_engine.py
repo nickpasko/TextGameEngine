@@ -2,8 +2,10 @@ import os
 
 
 class DefaultEngine:
-    def get_engine_name(self):
-        return 'Default engine showcasing the basic logic'
+    """Default engine showcasing the basic logic"""
+
+    def __init__(self):
+        pass
 
     def get_description(self):
         return 'You are at the big house. There is a huge door, ornamented with steel figurines of dwarfes.' \
@@ -21,5 +23,3 @@ class DefaultEngine:
             2: ['quit', 'You give up and go away.']
         }.get(option[0], ['unknown', 'Whaaat?'])
 
-    def __init__(self):
-        return

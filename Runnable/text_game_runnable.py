@@ -6,10 +6,8 @@ engines = [DefaultEngine(), XoGameEngine()]
 
 def main(argv=0):
     print('Select game engine:')
-    i = 0
-    for engine in engines:
-        print(str(i), ': ', engine.get_engine_name())
-        i += 1
+    for i, engine in enumerate(engines):
+        print(str(i), ': ', engine.__doc__)
     print()
     engine_num = input()
     engine = engines[int(engine_num)]

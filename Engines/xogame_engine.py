@@ -2,15 +2,27 @@ import os
 
 
 class XoGameEngine:
-# engine members
-    def get_engine_name(self):
-        return 'XO game with pre-defined CPU logic'
+    """XO game with pre-defined CPU logic"""
+    def __init__(self):
+        self.field = [[0, 0, 0],
+                      [0, 0, 0],
+                      [0, 0, 0]]
+        self.lines = [
+            [0, [[1, 1], [0, 0], [2, 2]]],
+            [0, [[1, 1], [0, 2], [2, 0]]],
+            [0, [[0, 0], [0, 2], [0, 1]]],
+            [0, [[0, 0], [2, 0], [1, 0]]],
+            [0, [[2, 2], [0, 2], [1, 2]]],
+            [0, [[2, 2], [2, 0], [2, 1]]],
+            [0, [[1, 1], [0, 1], [2, 1]]],
+            [0, [[1, 1], [1, 0], [1, 2]]]
+        ]
 
+# engine members
     def get_description(self):
         description = '  0  1  2' + os.linesep
         description += '  -------' + os.linesep
-        i = 0
-        for row in self.field:
+        for i, row in enumerate(self.field):
             description += str(i) + ' |'
             for item in row:
                 description += {
@@ -21,19 +33,14 @@ class XoGameEngine:
                 description += '|'
             description += os.linesep
             description += '  -------' + os.linesep
-            i += 1
         return description
 
     def get_options(self):
         options = []
-        i = 0
-        for row in self.field:
-            j = 0
-            for item in row:
+        for i, row in enumerate(self.field):
+            for j, item in enumerate(row):
                 if item == 0:
                     options.append([str(i) + ',' + str(j), str(i) + ',' + str(j)])
-                j += 1
-            i += 1
         if len(options) < 1:
             options.append(['Draw', 'Draw'])
         return options
@@ -103,17 +110,4 @@ class XoGameEngine:
                 return
 
 
-    def __init__(self):
-        self.field = [[0, 0, 0],
-                      [0, 0, 0],
-                      [0, 0, 0]]
-        self.lines = [
-            [0, [[1, 1], [0, 0], [2, 2]]],
-            [0, [[1, 1], [0, 2], [2, 0]]],
-            [0, [[0, 0], [0, 2], [0, 1]]],
-            [0, [[0, 0], [2, 0], [1, 0]]],
-            [0, [[2, 2], [0, 2], [1, 2]]],
-            [0, [[2, 2], [2, 0], [2, 1]]],
-            [0, [[1, 1], [0, 1], [2, 1]]],
-            [0, [[1, 1], [1, 0], [1, 2]]]
-        ]
+

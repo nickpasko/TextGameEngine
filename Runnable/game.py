@@ -5,7 +5,7 @@ def cls():
 
 class Game:
     def __init__(self):
-        return
+        pass
 
     def run(self, engine):
         result = ['', '']
@@ -14,10 +14,8 @@ class Game:
             print(result[1])
             print(engine.get_description())
             options = engine.get_options()
-            i = 0
-            for option in options:
+            for i, option in enumerate(options):
                 print(str(i), ': ', option[1])
-                i += 1
             print('choose option:')
             user_option = int(input(':'))
             selected_option = options[user_option]
