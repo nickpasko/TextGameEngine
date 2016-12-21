@@ -4,7 +4,6 @@ from Engines.prison_data.screens.escape_screen import EscapeScreen
 from Engines.prison_data.screens.game_over_screen import GameOverScreen
 
 
-
 def test_agile_dextrous_should_escape():
     """Option 0: outrun. Should succeed."""
     agile_dextrous_person = PlayerPerson("Agile and dextrous Person")
@@ -29,7 +28,7 @@ def test_strong_dextrous_should_escape():
     """Option 1: brawl. Should succeed."""
     strong_dextrous_person = PlayerPerson("Strong and agile Person")
     strong_dextrous_person.strength = 10
-    strong_dextrous_person.dexterity= 10
+    strong_dextrous_person.dexterity = 10
     escape_screen = EscapeScreen("Escape zone", strong_dextrous_person)
     result_screen = escape_screen.register_option(1)
     return result_screen.__class__ == GameOverScreen(True, 0).__class__
