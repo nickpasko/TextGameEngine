@@ -1,5 +1,6 @@
 import os
 
+from Engines.prison_data.prison_game_context import PrisonGameContext
 from Engines.prison_data.screens.bad_cell_screen import BadCellScreen
 from Engines.prison_data.screens.escape_screen import EscapeScreen
 from Engines.prison_data.screens.good_cell_screen import GoodCellScreen
@@ -24,9 +25,9 @@ class PrisonEntranceScreen:
 
     def register_option(self, option):
         return {
-            0: EscapeScreen("Prison Entrance, trying to escape", self.player),
-            1: GoodCellScreen("Good Cell for prison guard friends", self.player)
+            'escape': EscapeScreen("Prison Entrance, trying to escape", self.player),
+            'bribe': GoodCellScreen("Good Cell for prison guard friends", self.player)
                 if self.player.money > self.bribe_sum
                 else BadCellScreen("Bad Cell for attempted bribery", self.player),
-            2: NormalCellScreen('Normal Cell', self.player)
+            'proceed': NormalCellScreen('Normal Cell', self.player, PrisonGameContext(10))
         }.get(option, self)

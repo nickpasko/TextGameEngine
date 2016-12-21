@@ -22,5 +22,5 @@ class GameOverScreen:
 
     def register_option(self, option):
         return {
-            0: GameOverScreen(self.alive, self.term)
+            'quit': GameOverScreen(self.alive, self.term)
         }.get(option, self)

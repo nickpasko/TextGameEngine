@@ -19,5 +19,5 @@ class GoodCellScreen:
 
     def register_option(self, option):
         return {
-            0: GameOverScreen(True, 10)
+            'wait': GameOverScreen(True, 10)
         }.get(option, self)

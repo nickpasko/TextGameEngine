@@ -18,7 +18,7 @@ class PrisonEngine:
     def register_option(self, option):
         if option[1] == 'quit':
             return ['quit', 'Game Over.']
-        new_screen = self.current_screen.register_option(option[0])
+        new_screen = self.current_screen.register_option(option[1])
         self.current_screen = new_screen
         return ['', '']
 

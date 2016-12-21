@@ -1,5 +1,5 @@
-def cls():
-    print("\n" * 100)
+# def cls():
+#     print("\n" * 100)
     # os.system('cls' if os.name == 'nt' else 'clear')
 
 
@@ -10,7 +10,7 @@ class Game:
     def run(self, engine):
         result = ['', '']
         while True:
-            cls()
+            print()
             print(result[1])
             print(engine.get_description())
             options = engine.get_options()
