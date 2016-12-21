@@ -22,12 +22,12 @@ class EscapeScreen:
     def register_option(self, option):
         return {
             0: GameOverScreen(True, 0, "dodging all the guards and running away")
-                if self.player.agility >= 7 & self.player.dexterity >= 7
+                if self.player.agility >= 7 and self.player.dexterity >= 7
                 else BadCellScreen("Bad Cell for attempted runaway", self.player),
             1: GameOverScreen(True, 0, 'smashing the nearest guard forcing your way out')
-                if self.player.strength >= 8 & self.player.dexterity >= 5
+                if self.player.strength >= 8 and self.player.dexterity >= 5
                 else BadCellScreen("Bad Cell for attempted assault", self.player),
             2: GameOverScreen(True, 0, 'throwing in a bunch of gold to make guards look away, while silently slipping out the front door')
-                if self.player.intelligence >= 5 & self.player.dexterity >= 8 & self.player.money >= 75
+                if self.player.intelligence >= 5 and self.player.dexterity >= 8 and self.player.money >= 75
                 else BadCellScreen("Bad Cell for attempted runaway", self.player),
         }.get(option, self)
