@@ -2,11 +2,12 @@ import os
 import random
 
 from Engines.prison_data.screens.game_over_screen import GameOverScreen
+from Engines.prison_data.screens.gym_screen import GymScreen
 
 
 class NormalCellScreen:
-    def __init__(self, name, player, game_context):
-        self.name = name
+    def __init__(self, player, game_context):
+        self.name = 'Normal Cell'
         self.player = player
         self.game_context = game_context
 
@@ -33,9 +34,7 @@ class NormalCellScreen:
     def register_option(self, option):
         self.game_context.tick_day()
         if option == 'workout':
-            self.player.strength += 1
-            print('You have become stronger.')
-            return self
+            return GymScreen(self)
         if option == 'study':
             self.player.intelligence += 1
             print('You have become smarter.')

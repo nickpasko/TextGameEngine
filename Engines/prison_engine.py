@@ -7,7 +7,7 @@ class PrisonEngine:
 
     # engine members
     def __init__(self):
-        self.current_screen = PrisonEntranceScreen("Prison Entrance", PlayerPerson("Qwerty Uiop"))
+        self.current_screen = PrisonEntranceScreen(PlayerPerson("Qwerty Uiop"))
 
     def get_description(self):
         return self.current_screen.get_description()

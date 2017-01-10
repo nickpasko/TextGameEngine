@@ -10,10 +10,13 @@ class PlayerPerson:
         self.intelligence = random.randint(1, 10)
         self.dexterity = random.randint(1, 10)
         self.money = random.randint(50, 150)
+        self.authority = 0
 
     def get_description(self):
         return 'Your strength is ' + str(self.strength) + os.linesep + \
                'Your agility is ' + str(self.agility) + os.linesep + \
                'Your dexterity is ' + str(self.dexterity) + os.linesep + \
                'Your intelligence is ' + str(self.intelligence) + os.linesep + \
-                'You have ' + str(self.money) + ' gold on you.'
+                'You have ' + str(self.money) + ' gold on you.' + os.linesep + \
+                'Your authority is ' + str(self.authority)
+

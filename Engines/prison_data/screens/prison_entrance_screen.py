@@ -8,8 +8,8 @@ from Engines.prison_data.screens.normal_cell_screen import NormalCellScreen
 
 
 class PrisonEntranceScreen:
-    def __init__(self, name, player):
-        self.name = name
+    def __init__(self, player):
+        self.name = 'Prison Entrance'
         self.player = player
         self.bribe_sum = 100
 
@@ -29,5 +29,5 @@ class PrisonEntranceScreen:
             'bribe': GoodCellScreen("Good Cell for prison guard friends", self.player)
                 if self.player.money > self.bribe_sum
                 else BadCellScreen("Bad Cell for attempted bribery", self.player),
-            'proceed': NormalCellScreen('Normal Cell', self.player, PrisonGameContext(10))
+            'proceed': NormalCellScreen(self.player, PrisonGameContext(10))
         }.get(option, self)
